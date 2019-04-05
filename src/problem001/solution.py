@@ -1,26 +1,10 @@
-# If we list all the natural numbers below 10 that are multiples of 3 or 5, we
-# get 3, 5, 6 and 9. The sum of these multiples is 23.
-
-# Find the sum of all the multiples of 3 or 5 below 1000.
-
-import sys
+#!/usr/bin/env python3
 
 
 def sum_multiples_under(
         n: 'int: upper-bound to sum to' = 10,
         m: 'int: list of inputs' = [3, 5]) -> int:
 
-    # O(n^2 * m) ~= 18 seconds when n=100000 #
-    # l = []
-
-    # for i in range(n):
-    #     for j in m:
-    #         if i % j == 0 and i not in l:
-    #             l.append(i)
-
-    # return(sum(l, 0))
-
-    # O(n*m) ~= 0.03 seconds when n=100000 #
     l = []
     resulting_set = set()
 
