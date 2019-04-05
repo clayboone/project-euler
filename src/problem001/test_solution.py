@@ -12,6 +12,7 @@ class TestSumMultiplesUnder(unittest.TestCase):
         self.assertEqual(sum_multiples_under(10, [4, 6]), 18)
 
     def test_sum_multiples_under_big_numbers(self):
+        # TODO: use with a timeout?
         self.assertEqual(sum_multiples_under(100000), 2333316668)
 
     # TODO: Passing 0 throws a ZeroDivisionError
