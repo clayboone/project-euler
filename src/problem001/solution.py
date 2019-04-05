@@ -3,7 +3,7 @@
 
 def sum_multiples_under(
         n: 'int: upper-bound to sum to' = 10,
-        m: 'int: list of inputs' = [3, 5]) -> int:
+        m: 'int[]: list of inputs' = [3, 5]) -> int:
 
     l = []
     resulting_set = set()
