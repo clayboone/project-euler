@@ -14,9 +14,9 @@ class TestSumMultiplesUnder(unittest.TestCase):
     def test_sum_multiples_under_big_numbers(self):
         self.assertEqual(sum_multiples_under(100000), 2333316668)
 
-    # Passing 0 throws a ZeroDivisionError
+    # TODO: Passing 0 throws a ZeroDivisionError
 
-    # Passing n=10 and m=[1, 1, ...] returns 45?
+    # FIXME: Passing n=10 and m=[1, 1, ...] returns 45?
 
 
 if __name__ == '__main__':
