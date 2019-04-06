@@ -1,0 +1,15 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.unitTest.unittestEnabled": true,
+  "python.unitTest.unittestArgs": ["-v", "-s", "tests", "-p", "test_*.py"],
+  "coverage-gutters.coverageFileNames": [".coverage.xml"],
+  "coverage-gutters.showRulerCoverage": true,
+  "coverage-gutters.showGutterCoverage": true,
+  "files.exclude": {
+    "**/__pycache__": true
+  },
+  "triggerTaskOnSave.on": false,
+  "triggerTaskOnSave.tasks": {
+    "coverage report": ["src/**/*.py", "tests/**/*.py"]
+  }
+}
