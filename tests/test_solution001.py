@@ -1,5 +1,5 @@
 import unittest
-from solution import sum_multiples_under
+from src.problem001.solution import sum_multiples_under
 
 
 class TestSumMultiplesUnder(unittest.TestCase):
@@ -20,5 +20,5 @@ class TestSumMultiplesUnder(unittest.TestCase):
     # FIXME: Passing n=10 and m=[1, 1, ...] returns 45?
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     unittest.main()

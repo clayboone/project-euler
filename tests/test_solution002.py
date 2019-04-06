@@ -1,5 +1,5 @@
 import unittest
-from solution import FiboSummer
+from src.problem002.solution import FiboSummer
 
 
 class TestFiboSummer(unittest.TestCase):
