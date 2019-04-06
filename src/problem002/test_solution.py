@@ -5,8 +5,10 @@ from solution import FiboSummer
 class TestFiboSummer(unittest.TestCase):
 
     def test_build_sequence(self):
-        self.assertListEqual(FiboSummer.build_sequence(100)[:2], [1, 2])
-        self.assertListEqual(FiboSummer.build_sequence(100)[-2:], [55, 89])
+        self.assertListEqual(FiboSummer.build_sequence(10)[:2], [1, 2],
+                             'Sequence should start with [1, 2]')
+        self.assertListEqual(FiboSummer.build_sequence(89)[-1:], [89],
+                             'If possible, sequence should include `n`')
 
     def test_calculate_example(self):
         self.assertEqual(FiboSummer(100, [2]).calculate(), 44)
