@@ -10,6 +10,9 @@ class TestFiboSummer(unittest.TestCase):
         self.assertListEqual(FiboSummer.build_sequence(89)[-1:], [89],
                              'If possible, sequence should include `n`')
 
+    def test_calculate_all_numbers_in_sequence(self):
+        self.assertEqual(FiboSummer(100).calculate(), 231)
+
     def test_calculate_example(self):
         self.assertEqual(FiboSummer(100, [2]).calculate(), 44)
 
