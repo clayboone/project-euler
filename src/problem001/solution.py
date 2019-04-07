@@ -2,22 +2,32 @@
 
 
 def sum_multiples_under(
-        n: 'int: upper-bound to sum to' = 10,
-        m: 'int[]: list of inputs' = [3, 5]) -> int:
+        n: 'int: upper-bound to sum to',
+        m: 'int[]: list of inputs' = None) -> int:
 
-    l = []
-    resulting_set = set()
+    if m is not None and 0 in m:
+        raise ValueError('Non-existant multiples cannot be summed.')
+    elif m is None or 1 in m:
+        ret = 0
 
-    for i, val in enumerate(m):
-        l.append([])
+        for i in range(int(n)):
+            ret += i
 
-        for j in range(int(n)):
-            if j % int(val) == 0:
-                l[i].append(j)
+        return ret
+    else:
+        l = []
+        resulting_set = set()
 
-        resulting_set |= set(l[i])
+        for i, val in enumerate(m):
+            l.append([])
 
-    return(sum(resulting_set, 0))
+            for j in range(int(n)):
+                if j % int(val) == 0:
+                    l[i].append(j)
+
+            resulting_set |= set(l[i])
+
+        return(sum(resulting_set, 0))
 
 
 if __name__ == '__main__':  # pragma: no cover
