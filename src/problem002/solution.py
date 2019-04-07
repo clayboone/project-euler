@@ -38,6 +38,8 @@ class FiboSummer(object):
         return fibo
 
 
-if __name__ == '__main__':
-    summer = FiboSummer(100, [2])
-    print(f'{summer.calculate()}')
+if __name__ == '__main__':  # pragma: no cover
+
+    print('Sum of even numbers not exceding 4 million is {}'.format(
+        FiboSummer(4_000_000, [2]).calculate()
+    ))
