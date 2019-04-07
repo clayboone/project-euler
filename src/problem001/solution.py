@@ -8,24 +8,18 @@ def sum_multiples_under(
     if m is not None and 0 in m:
         raise ValueError('Non-existant multiples cannot be summed.')
     elif m is None or 1 in m:
-        ret = 0
-
-        for i in range(int(n)):
-            ret += i
-
-        return ret
+        return sum([x for x in range(n)])
     else:
-        l = []
         resulting_set = set()
 
-        for i, val in enumerate(m):
-            l.append([])
+        for e in m:
+            l = []
 
             for j in range(int(n)):
-                if j % int(val) == 0:
-                    l[i].append(j)
+                if j % int(e) == 0:
+                    l.append(j)
 
-            resulting_set |= set(l[i])
+            resulting_set |= set(l)
 
         return(sum(resulting_set, 0))
 
