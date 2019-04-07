@@ -25,5 +25,6 @@ def sum_multiples_under(
 
 
 if __name__ == '__main__':  # pragma: no cover
-    print('The sum of all multiples of 3 and 5 below 1000 is {}'
-          .format(sum_multiples_under(1000, [3, 5])))
+    print('The sum of all multiples of 3 and 5 below 1000 is {}'.format(
+        sum_multiples_under(1000, [3, 5])
+    ))
