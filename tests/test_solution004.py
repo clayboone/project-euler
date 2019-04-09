@@ -1,5 +1,7 @@
 import unittest
-from src.problem004.solution import isPalindrome, gen_products_from_digits, calculate
+from src.problem004.solution import isPalindrome
+from src.problem004.solution import gen_products_from_digits
+from src.problem004.solution import calculate
 
 
 class TestFindPalindrome(unittest.TestCase):
