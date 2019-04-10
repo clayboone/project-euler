@@ -11,9 +11,6 @@ class Solution(object):
         tape = [int(x) for x in self.tape]
 
         for i in range(len(tape) - n):
-            l = tape[i:i+n]
-
-            prod = reduce(lambda x, y: x * y, l)
-            maxProd = max([maxProd, prod])
+            maxProd = max([maxProd, reduce(lambda x, y: x * y, tape[i:i+n])])
 
         return maxProd
