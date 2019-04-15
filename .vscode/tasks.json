@@ -9,7 +9,7 @@
       // gutters automatically.
       "label": "coverage report",
       "type": "shell",
-      "command": "coverage run -m unittest && coverage xml -o .coverage.xml && coverage report",
+      "command": "coverage run -m unittest && coverage xml -o .coverage.xml && coverage report -m",
       "problemMatcher": []
     }
   ]
