@@ -21,10 +21,6 @@ class Solution(object):
         '''Search self.tape for the largest product of any `n` numbers in a row
         horizontally, vertically, and diagonally.
         '''
-        # What should I do here: Make 4 passes over the data, one for each
-        # direction of line? Make 2, n-by-n sub-grids and remove all numbers
-        # that aren't in a line? Maybe iterate all the way to the end on the
-        # x-axis and put in some if's to see if we can make diagonal lines?
 
         # n <= 0 doesn't make sense and n == 1 is "find the biggest number"
         assert n > 1
@@ -41,43 +37,27 @@ class Solution(object):
             return reduce(lambda x, y: x * y, l, 1)
 
         for y in range(len(self.tape) - n):
-            for x in range(len(self.tape[y]) - n):
-                # Make an int[][] with dimensions 3*n: one with horizontal
-                # numbers, one vertical, and one diagonal.
+            for x in range(len(self.tape[y])):
+                # Make an int[][] with dimensions 4*n: one with horizontal
+                # numbers, one vertical, and two diagonal.
 
-                # Find n-numbers horizontally
-                lines = [self.tape[y][x:n]]
+                if x <= len(self.tape[y]) - n:
+                    # Find n-numbers horizontally
+                    lines = [self.tape[y][x:x + n]]
 
-                # Find n-numbers vertically
-                l = []
-                for sub_y in range(n):
-                    l += [self.tape[y + sub_y][x]]
+                    # Find n-numbers vertically
+                    lines.append([self.tape[y + d][x] for d in range(n)])
 
-                lines.append(l)
+                    # Find n-numbers diagonally (negative slope)
+                    lines.append([self.tape[y + d][x + d] for d in range(n)])
 
-                # Find n-numbers diagonally (negative slope).
-                l = []
-                for sub_xy in range(n):
-                    l += [self.tape[y + sub_xy][x + sub_xy]]
-
-                lines.append(l)
+                if x >= n-1:
+                    # Find n-numbers diagonally (positive slope)
+                    lines.append([self.tape[y + d][x - d] for d in range(n)])
 
                 # Find largest product
                 for line in lines:
                     maxProd = max([maxProd, product(line)])
-
-        # For this implementation we'll need to make a 2nd pass over the data
-        # starting at n-1 and moving to the end on the x-axis to find all
-        # products of numbers in a diagonal line with positive slope... God,
-        # this is ugly.
-        for y in range(len(self.tape) - n):
-            for x in range(n-1, len(self.tape[y])):
-                line = []
-
-                for sub_xy in range(n):
-                    line += [self.tape[y + sub_xy][x - sub_xy]]
-
-                maxProd = max([maxProd, product(line)])
 
         return maxProd
 
