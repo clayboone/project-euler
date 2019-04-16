@@ -49,18 +49,10 @@ class Solution(object):
                 lines = [self.tape[y][x:n]]
 
                 # Find n-numbers vertically
-                l = []
-                for sub_y in range(n):
-                    l += [self.tape[y + sub_y][x]]
-
-                lines.append(l)
+                lines.append([self.tape[y + d][x] for d in range(n)])
 
                 # Find n-numbers diagonally (negative slope).
-                l = []
-                for sub_xy in range(n):
-                    l += [self.tape[y + sub_xy][x + sub_xy]]
-
-                lines.append(l)
+                lines.append([self.tape[y + d][x + d] for d in range(n)])
 
                 # Find largest product
                 for line in lines:
