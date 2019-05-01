@@ -1,3 +1,4 @@
+from decimal import Decimal, getcontext
 from functools import reduce
 
 
@@ -23,12 +24,22 @@ class Solution(object):
     @staticmethod
     def nilakantha(iterations: 'int') -> 'float':
         """Calculate Pi using the Nilakantha series (fast convergence)"""
-        pi = 3.0
+        getcontext().prec = 1000
+        pi = Decimal(3.0)
         adding = True
 
         for i in range(2, iterations * 2, 2):
             t = (i, i+1, i+2)
-            pi = pi + 4 / mult(t) if adding else pi - 4 / mult(t)
+            pi = pi + Decimal(4) / Decimal(mult(t)) if adding \
+                else pi - Decimal(4) / Decimal(mult(t))
             adding = not adding
 
         return pi
+
+
+if __name__ == "__main__":
+    i = 0
+
+    while True:
+        print(str(Solution.nilakantha(i))[:120])
+        i += 1000
